@@ -35,15 +35,15 @@
           <h3>Size:</h3>
           <hr>
           <div class="pizzaSize" id="Mercury">
-            <img src="http://unsplash.it/50/50" alt="Picture of small pizza">
+            <img src="img/pizza.png" alt="Picture of small pizza">
             <h4>Mercury</h4>
           </div>
           <div class="pizzaSize" id="Earth">
-            <img src="http://unsplash.it/50/50" alt="Picture of medium pizza">
+            <img src="img/pizza.png" alt="Picture of medium pizza">
             <h4>Earth</h4>
           </div>
           <div class="pizzaSize" id="Mars">
-            <img src="http://unsplash.it/50/50" alt="Picture of large pizza">
+            <img src="img/pizza.png" alt="Picture of large pizza">
             <h4>Mars</h4>
           </div>
         </div>
@@ -57,9 +57,14 @@
     <button class="btn btn-primary btn-lg btn-block" id="purchaseButton">Purchase Order</button>
     <!-- RECEIPT PAGE -->
     <div id="receipt">
-      <h6>Thank you for your order!</h6>
       <div id="receiptInfo">
-
+        <h3>Order Summary:</h3>
+        <hr>
+        <p>Number of Pizzas: <span id="pizzaNum"></span></p>
+        <p>Total Cost: $<span id="totalCost"></span></p>
+        <hr>
+        <h4>Special thanks for choosing Pizza Planet.</h4>
+        <p>&copy; 2020 Jamison Cozart</p>
       </div>
       <button class="btn btn-primary btn-lg btn-block" id="buyMoreButton">Buy More Za!</button>
     </div>

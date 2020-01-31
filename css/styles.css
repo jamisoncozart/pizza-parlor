@@ -43,10 +43,16 @@ h1 {
 .pizzaSize {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   background-color: #ccc;
   border-radius: 5px;
   margin: 10px 0;
+  padding: 10px 20px 10px 10px;
+}
+
+.pizzaSize h4 {
+  font-size: 23px;
 }
 
 .pizzaSize:hover {
@@ -56,11 +62,22 @@ h1 {
 .pizzaSize img {
   border: 1px solid black;
   border-radius: 5px;
-  margin: 10px;
+  height: 60px;
+  width: auto;
+}
+
+#Mercury img {
+  height: 35px;
+  width: auto;
+}
+
+#Mars img {
+  height: 90px;
+  width: auto;
 }
 
 .selected {
-  border: 2px solid blue;
+  border: 4px solid black;
 }
 
 /* PIZZAS */

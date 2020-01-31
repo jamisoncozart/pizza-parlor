@@ -58,9 +58,6 @@ function Pizza(toppingArr, size) {
   this.price = 0;
 }
 
-/////////////////////////////////////////////
-// Loner functions //
-/////////////////////
 Pizza.prototype.calculatePrice = function() {
   switch(this.size) {
     case "Mercury":
