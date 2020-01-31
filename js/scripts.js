@@ -40,6 +40,25 @@ function Pizza(toppingArr, size, price) {
   this.price = price;
 }
 
+/////////////////////////////////////////////
+// Loner functions //
+/////////////////////
+function calculatePrice(toppingArr, size) {
+  var price = 0;
+  switch(size) {
+    case "Mercury":
+      price += 8;
+      break;
+    case "Earth":
+      price += 12;
+      break;
+    case "Mars":
+      price += 15;
+      break;
+  }
+  price += (toppingArr.length - 1) * 2;   
+  return price;
+}
 
 //===========================================
 //FRONT-END
@@ -69,7 +88,7 @@ Pizza.prototype.writePizza = function() {
       toppingString += (this.toppings[i] + ", ");
     }
   }
-  var htmlString = `<div class="pizza"><img src=${sizeImage} alt="Picture of pizza"><div class="pizzaInfo"><h5 id="topping">${toppingString}</h5><hr><p>Size: <span id="size">${this.size}</span></p><p>Cost: $<span id="cost">24</span></p></div><div class="buttons"><button id="deleteButton" class="btn btn-danger btn-sm">X</button><button id="editButton" class="btn btn-warning btn-block">EDIT</button></div></div>`;
+  var htmlString = `<div class="pizza"><img src=${sizeImage} alt="Picture of pizza"><div class="pizzaInfo"><h5 id="topping">${toppingString}</h5><hr><p>Size: <span id="size">${this.size}</span></p><p>Cost: $<span id="cost">${this.price}</span></p></div><div class="buttons"><button id="deleteButton" class="btn btn-danger btn-sm">X</button><button id="editButton" class="btn btn-warning btn-block">EDIT</button></div></div>`;
   $("div#pizzas").prepend(htmlString);
 }
 
@@ -93,7 +112,7 @@ $(document).ready(function() {
       $("input:checkbox[name=toppings]:checked").each(function() {
         toppingArr.push($(this).val());
       })
-      var pizza = new Pizza(toppingArr, size)
+      var pizza = new Pizza(toppingArr, size, calculatePrice(toppingArr, size));
       order.addPizza(pizza);
       //append pizza object to div#pizzas
       pizza.writePizza();
