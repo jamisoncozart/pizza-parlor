@@ -58,6 +58,10 @@ h1 {
   margin: 10px;
 }
 
+.selected {
+  border: 2px solid blue;
+}
+
 /* PIZZAS */
 .pizza {
   background-color: white;
