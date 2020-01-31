@@ -11,6 +11,66 @@
   <title>Pizza Parlor</title>
 </head>
 <body>
-  
+  <div class="container">
+    <h1>Out-Of-This-World Pizza</h1>
+    <!-- ORDER FORM -->
+    <div id="orderForm">
+      <h2>Custom Za</h2>
+      <hr>
+      <div id="choices" class="panel">
+        <!-- toppings -->
+        <div id="toppingSelect">
+          <h3>Toppings: ($2 Each)</h3>
+          <hr>
+          <input type="checkbox" name="cheese" value="Cheese" checked> Cheese<br>
+          <input type="checkbox" name="pepperoni" value="Pepperoni"> Pepperoni<br>
+          <input type="checkbox" name="sausage" value="Sausage"> Sausage<br>
+          <input type="checkbox" name="onion" value="Onion"> Onion<br>
+          <input type="checkbox" name="pepper" value="Pepper"> Pepper<br>
+          <input type="checkbox" name="olive" value="Olive"> Olive<br>
+        </div>
+        <!-- sizes -->
+        <div id="sizeSelect">
+          <h3>Size:</h3>
+          <hr>
+          <div class="pizzaSize" id="mercury">
+            <img src="http://unsplash.it/50/50" alt="Picture of small pizza">
+            <h4>Mercury</h4>
+          </div>
+          <div class="pizzaSize" id="earth">
+            <img src="http://unsplash.it/50/50" alt="Picture of medium pizza">
+            <h4>Earth</h4>
+          </div>
+          <div class="pizzaSize" id="Mars">
+            <img src="http://unsplash.it/50/50" alt="Picture of large pizza">
+            <h4>Mars</h4>
+          </div>
+        </div>
+      </div>
+      <button id="addZa" class="btn btn-success btn-lg btn-block">Add Za</button>
+    </div>
+    <!-- PIZZAS -->
+    <div id="pizzas">
+      <!-- New pizzas are appended here -->
+      <div class="pizza">
+        <img src="http://unsplash.it/100/100" alt="Picture of pizza">
+        <div class="pizzaInfo">
+          <h5 id="topping">Sausage + Pepperoni</h5>
+          <hr>
+          <p>Size: <span id="size">Mars</span></p>
+          <p>Cost: $<span id="cost">24</span></p>
+        </div>
+        <div class="buttons">
+          <button id="deleteButton" class="btn btn-danger btn-sm">X</button>
+          <button id="editButton" class="btn btn-warning btn-block">EDIT</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-lg btn-block" id="purchaseButton">Purchase Order</button>
+    <div id="receipt">
+      <h6>Thank you for your order!</h6>
+      <button class="btn btn-primary btn-lg btn-block" id="buyMoreButton">Buy More Za!</button>
+    </div>
+  </div>
 </body>
 </html>
