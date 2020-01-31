@@ -8,12 +8,14 @@
 function Order() {
   this.pizzas = [];
   this.currentId = 0;
+  this.totalCost = 0;
 }
 
 //pushes new pizza to Order pizzas array.
 Order.prototype.addPizza = function(pizza) {
   this.incrementId(pizza);
   this.pizzas.push(pizza);
+  this.totalCost += pizza.price;
 }
 
 //increments Order's currentId by 1 and adds the current id to the Pizza object passed in.
@@ -21,18 +23,6 @@ Order.prototype.incrementId = function(pizza) {
   this.currentId++;
   pizza.id = this.currentId;
 }
-
-// //finds a pizza within the Order.pizzas array by a given id.
-// Order.prototype.findPizza = function(id) {
-  // for(let i = 0; i < this.pizzas.length; i++) {
-  //   if(this.pizzas[i]) {
-//       if(this.pizzas[i].id === id) {
-//         return this.pizzas[i];
-//       }
-//     }
-//   }
-//   return false;
-// }
 
 //deletes a pizza within the Order.pizzas array by a given id.
 Order.prototype.deletePizza = function(id) {
@@ -78,21 +68,12 @@ Pizza.prototype.calculatePrice = function() {
 //-------------------------------------------
 
 //Order object
-
+Order.prototype.displayOrderDetails = function() {
+  $("#pizzaNum").html(this.pizzas.length);
+  $("#totalCost").html(this.totalCost);
+}
 //Pizza object
 Pizza.prototype.writePizza = function() {
-  var sizeImage;
-  switch(this.size) {
-    case "Mercury":
-      sizeImage = "img/mercury.jpg";
-      break;
-    case "Earth":
-      sizeImage = "img/earth.jpg";
-      break;
-    case "Mars":
-      sizeImage = "img/mars.jpg";
-      break;
-  }
   var toppingString = "";
   for(let i = 0; i < this.toppings.length; i++) {
     if(i === this.toppings.length - 1) {
@@ -101,7 +82,7 @@ Pizza.prototype.writePizza = function() {
       toppingString += (this.toppings[i] + ", ");
     }
   }
-  var htmlString = `<div class="pizza" id=${this.id}><img src=${sizeImage} alt="Picture of pizza"><div class="pizzaInfo"><h5 id="topping">${toppingString}</h5><hr><p>Size: <span id="size">${this.size}</span></p><p>Cost: $<span id="cost">${this.price}</span></p></div><div class="buttons"><button id=${this.id} class="btn btn-danger btn-sm deleteButton">X</button><button id=${this.id} class="btn btn-warning btn-block editButton">EDIT</button></div></div>`;
+  var htmlString = `<div class="pizza" id=${this.id}><div class="pizzaImgDiv"><img id=${this.size} src=img/pizza.png alt="Picture of pizza"></div><div class="pizzaInfo"><h5 id="topping">${toppingString}</h5><hr><p>Size: <span id="size">${this.size}</span></p><p>Cost: $<span id="cost">${this.price}</span></p></div><div class="buttons"><button id=${this.id} class="btn btn-danger btn-sm deleteButton">X</button><button id=${this.id} class="btn btn-warning btn-block editButton">EDIT</button></div></div>`;
   $("div#pizzas").prepend(htmlString);
 }
 //////////////////////////
@@ -147,6 +128,7 @@ $(document).ready(function() {
   //click listener on 'purchase order' button
   $("#purchaseButton").click(function() {
     $("#orderForm, #pizzas, #purchaseButton").hide();
+    order.displayOrderDetails();
     $("#receipt").show();
   })
   $("#buyMoreButton").click(function() {
