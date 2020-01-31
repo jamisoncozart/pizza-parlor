@@ -22,6 +22,7 @@ h1 {
 .panel {
   padding: 20px;
   margin: 0;
+  margin-bottom: 20px;
 }
 
 #choices {
@@ -94,6 +95,10 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+#purchaseButton {
+  display: none;
 }
 
 /* RECEIPT */

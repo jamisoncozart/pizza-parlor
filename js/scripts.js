@@ -36,6 +36,7 @@ Order.prototype.incrementId = function(pizza) {
 
 //deletes a pizza within the Order.pizzas array by a given id.
 Order.prototype.deletePizza = function(id) {
+  var id = parseInt(id);
   for(let i = 0; i < this.pizzas.length; i++) {
     if(this.pizzas[i]) {
       if(this.pizzas[i].id === id) {
@@ -138,12 +139,26 @@ $(document).ready(function() {
       order.addPizza(pizza);
       //append pizza object to div#pizzas
       pizza.writePizza();
+      $("#purchaseButton").show();
     } else {
       alert("Please select a pizza size!");
     }
   });
   //click listener on delete buttons
   $("div#pizzas").on("click", ".deleteButton", function() {
-    order.deletePizza(parseInt(this.id));
+    order.deletePizza(this.id);
+  })
+  //click listener on 'purchase order' button
+  $("#purchaseButton").click(function() {
+    $("#orderForm, #pizzas, #purchaseButton").hide();
+    $("#receipt").show();
+  })
+  $("#buyMoreButton").click(function() {
+    $("#receipt").hide();
+    order.pizzas.forEach(function(pizza) {
+
+      order.deletePizza(pizza.id);
+    })
+    $("#orderForm, #pizzas").show();
   })
 })
