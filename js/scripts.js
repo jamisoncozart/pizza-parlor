@@ -82,7 +82,12 @@ Pizza.prototype.writePizza = function() {
       toppingString += (this.toppings[i] + ", ");
     }
   }
-  var htmlString = `<div class="pizza" id=${this.id}><div class="pizzaImgDiv"><img id=${this.size} src=img/pizza.png alt="Picture of pizza"></div><div class="pizzaInfo"><h5 id="topping">${toppingString}</h5><hr><p>Size: <span id="size">${this.size}</span></p><p>Cost: $<span id="cost">${this.price}</span></p></div><div class="buttons"><button id=${this.id} class="btn btn-danger btn-sm deleteButton">X</button><button id=${this.id} class="btn btn-warning btn-block editButton">EDIT</button></div></div>`;
+  if($("#moonSun").attr("src") === "img/moon.png") {
+    var htmlString = `<div class="pizza" id=${this.id}><div class="pizzaImgDiv"><img id=${this.size} src=img/pizza.png alt="Picture of pizza"></div><div class="pizzaInfo"><h5 id="topping">${toppingString}</h5><hr><p>Size: <span id="size">${this.size}</span></p><p>Cost: $<span id="cost">${this.price}</span></p></div><div class="buttons"><button id=${this.id} class="btn btn-danger btn-sm deleteButton">X</button><button id=${this.id} class="btn btn-warning btn-block editButton">EDIT</button></div></div>`;
+  } else {
+    var htmlString = `<div class="pizza dark" id=${this.id}><div class="pizzaImgDiv"><img id=${this.size} src=img/pizza.png alt="Picture of pizza"></div><div class="pizzaInfo"><h5 id="topping">${toppingString}</h5><hr><p>Size: <span id="size">${this.size}</span></p><p>Cost: $<span id="cost">${this.price}</span></p></div><div class="buttons"><button id=${this.id} class="btn btn-danger btn-sm deleteButton">X</button><button id=${this.id} class="btn btn-warning btn-block editButton">EDIT</button></div></div>`;
+  }
+  
   $("div#pizzas").prepend(htmlString);
 }
 //////////////////////////
@@ -138,5 +143,26 @@ $(document).ready(function() {
       order.deletePizza(pizza.id);
     })
     $("#orderForm, #pizzas").show();
+  })
+  //dark mode button click listener
+  $("button#lightDark").click(function() {
+    var buttonImage = $("#moonSun");
+    if(buttonImage.attr("src") === "img/moon.png") {
+      buttonImage.attr("src", "img/sun.png");
+      $("#pizzas").each(function() {
+
+      })
+      $(".panel").addClass("dark");
+      $(".pizza").addClass("dark");
+      $(".receiptInfo").addClass("dark");
+      $(".pizzaSize").addClass("darkSize");
+    } else {
+      buttonImage.attr("src", "img/moon.png");
+      $(".panel").removeClass("dark");
+      $(".pizza").removeClass("dark");
+      $(".receiptInfo").removeClass("dark");
+      $(".pizzaSize").removeClass("darkSize");
+
+    }
   })
 })

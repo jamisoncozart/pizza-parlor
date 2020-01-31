@@ -37,6 +37,8 @@ h2 {
   padding: 20px;
   margin: 0;
   margin-bottom: 20px;
+  transition: background-color color 0.1s;
+
 }
 
 #heading button {
@@ -109,8 +111,8 @@ h2 {
 }
 
 .selected {
-  -webkit-box-shadow: inset 1px 1px 15px 0px rgba(0,0,0,0.57); 
-  box-shadow: inset 1px 1px 15px 0px rgba(0,0,0,0.57);
+  -webkit-box-shadow: inset 1px 1px 15px 0px rgba(0, 0, 0, 0.699); 
+  box-shadow: inset 1px 1px 15px 0px rgba(0,0,0,0.699);
   transition: 0.05s;
 }
 
@@ -134,6 +136,7 @@ h2 {
   justify-content: space-between;
   border-radius: 5px;
   margin: 20px 0;
+  transition: background-color color 0.1s;
 }
 
 .pizza h5 {
@@ -197,11 +200,12 @@ button#purchaseButton {
   display: none;
 }
 
-#receiptInfo {
+.receiptInfo {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
   margin: 0 auto 20px auto;
+  transition: background-color color 0.1s;
 }
 
 #receipt h3 {
@@ -214,4 +218,17 @@ button#purchaseButton {
 
 #receipt button {
   font-weight: bold;
+}
+
+/* Dark Theme */
+.dark {
+  background-color: #333;
+  color: white;
+  transition: 0.1s;
+}
+
+.darkSize {
+  background-color: #555;
+  color: white;
+  transition: 0.1s;
 }
