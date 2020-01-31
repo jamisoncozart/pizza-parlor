@@ -52,30 +52,28 @@ Order.prototype.deletePizza = function(id) {
 /////////////////////////////////////////////
 // PIZZA OBJECT //
 //////////////////
-function Pizza(toppingArr, size, price) {
+function Pizza(toppingArr, size) {
   this.toppings = toppingArr;
   this.size = size;
-  this.price = price;
+  this.price = 0;
 }
 
 /////////////////////////////////////////////
 // Loner functions //
 /////////////////////
-function calculatePrice(toppingArr, size) {
-  var price = 0;
-  switch(size) {
+Pizza.prototype.calculatePrice = function() {
+  switch(this.size) {
     case "Mercury":
-      price += 8;
+      this.price += 8;
       break;
     case "Earth":
-      price += 12;
+      this.price += 12;
       break;
     case "Mars":
-      price += 15;
+      this.price += 15;
       break;
   }
-  price += (toppingArr.length - 1) * 2;
-  return price;
+  this.price += (this.toppings.length - 1) * 2;
 }
 
 //===========================================
@@ -135,7 +133,8 @@ $(document).ready(function() {
       $("input:checkbox[name=toppings]:checked").each(function() {
         toppingArr.push($(this).val());
       })
-      var pizza = new Pizza(toppingArr, size, calculatePrice(toppingArr, size));
+      var pizza = new Pizza(toppingArr, size);
+      pizza.calculatePrice();
       order.addPizza(pizza);
       //append pizza object to div#pizzas
       pizza.writePizza();
