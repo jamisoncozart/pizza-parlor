@@ -1,0 +1,98 @@
+body {
+  background-color: black;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 50%;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+h1 {
+  color: white;
+  margin: 20px;
+}
+
+
+/* PIZZA ORDER FORM */
+.panel {
+  padding: 20px;
+  margin: 0;
+}
+
+#choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#toppingSelect, #sizeSelect {
+  width: 49%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.pizzaSize {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.pizzaSize:hover {
+  opacity: 0.8;
+}
+
+.pizzaSize img {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+/* PIZZAS */
+.pizza {
+  background-color: white;
+  text-align: left;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.pizza h5 {
+  font-size: 25px;
+}
+
+.pizza img {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.pizza .pizzaInfo {
+  font-size: 18px;
+  margin: 0 20px;
+  width: 80%;
+}
+
+.pizza .buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* RECEIPT */
+#receipt {
+  display: none;
+}
