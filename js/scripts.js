@@ -142,7 +142,10 @@ $(document).ready(function() {
 
       order.deletePizza(pizza.id);
     })
+    order.currentId = 0;
+    order.totalCost = 0;
     $("#orderForm, #pizzas").show();
+    console.log(order);
   })
   //dark mode button click listener
   $("button#lightDark").click(function() {
@@ -156,13 +159,14 @@ $(document).ready(function() {
       $(".pizza").addClass("dark");
       $(".receiptInfo").addClass("dark");
       $(".pizzaSize").addClass("darkSize");
+      $("footer").addClass("dark");
     } else {
       buttonImage.attr("src", "img/moon.png");
       $(".panel").removeClass("dark");
       $(".pizza").removeClass("dark");
       $(".receiptInfo").removeClass("dark");
       $(".pizzaSize").removeClass("darkSize");
-
+      $("footer").removeClass("dark");
     }
   })
 })

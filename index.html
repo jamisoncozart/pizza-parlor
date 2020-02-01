@@ -13,70 +13,73 @@
 </head>
 <body>
   <div class="container">
-    <h1><img src="img/rocketWhite.png"> Pizza Planet</h1>
-    <!-- ORDER FORM -->
-    <div id="orderForm" class="panel">
-      <div id="heading">
-        <button id="lightDark"><img id="moonSun" src="img/moon.png"></button>
-        <h2>Customize Pizza</h2>
-      </div>
-      <hr>
-      <div id="choices">
-        <!-- toppings -->
-        <div id="toppingSelect">
-          <h3>Toppings: ($2 Each)</h3>
-          <hr>
-          <input type="checkbox" name="toppings" value="Cheese" checked> Cheese (Free)<br>
-          <input type="checkbox" name="toppings" value="Pepperoni"> Pepperoni<br>
-          <input type="checkbox" name="toppings" value="Sausage"> Sausage<br>
-          <input type="checkbox" name="toppings" value="Canadian Bacon"> Canadian Bacon<br>
-          <input type="checkbox" name="toppings" value="Onion"> Onion<br>
-          <input type="checkbox" name="toppings" value="Pepper"> Pepper<br>
-          <input type="checkbox" name="toppings" value="Olive"> Olive<br>
-          <input type="checkbox" name="toppings" value="Pineapple"> Pineapple<br>
-          <input type="checkbox" name="toppings" value="Hot sauce"> Hot sauce<br>
-          <input type="checkbox" name="toppings" value="Feta Cheese"> Feta Cheese<br>
-          <input type="checkbox" name="toppings" value="Pesto"> Pesto<br>
-          <input type="checkbox" name="toppings" value="Anchovies"> Anchovies<br>
+    <div id="content-wrap">
+      <h1><img src="img/rocketWhite.png"> Pizza Planet</h1>
+      <!-- ORDER FORM -->
+      <div id="orderForm" class="panel">
+        <div id="heading">
+          <button id="lightDark"><img id="moonSun" src="img/moon.png"></button>
+          <h2>Customize Pizza</h2>
         </div>
-        <!-- sizes -->
-        <div id="sizeSelect">
-          <h3>Size:</h3>
-          <hr>
-          <div class="pizzaSize" id="Mercury">
-            <img src="img/pizza.png" alt="Picture of small pizza">
-            <h4>Mercury</h4>
+        <hr>
+        <div id="choices">
+          <!-- toppings -->
+          <div id="toppingSelect">
+            <h3>Toppings: ($2 Each)</h3>
+            <hr>
+            <input type="checkbox" name="toppings" value="Cheese" checked> Cheese (Free)<br>
+            <input type="checkbox" name="toppings" value="Pepperoni"> Pepperoni<br>
+            <input type="checkbox" name="toppings" value="Sausage"> Sausage<br>
+            <input type="checkbox" name="toppings" value="Canadian Bacon"> Canadian Bacon<br>
+            <input type="checkbox" name="toppings" value="Onion"> Onion<br>
+            <input type="checkbox" name="toppings" value="Pepper"> Pepper<br>
+            <input type="checkbox" name="toppings" value="Olive"> Olive<br>
+            <input type="checkbox" name="toppings" value="Pineapple"> Pineapple<br>
+            <input type="checkbox" name="toppings" value="Hot sauce"> Hot sauce<br>
+            <input type="checkbox" name="toppings" value="Feta Cheese"> Feta Cheese<br>
+            <input type="checkbox" name="toppings" value="Pesto"> Pesto<br>
+            <input type="checkbox" name="toppings" value="Anchovies"> Anchovies<br>
           </div>
-          <div class="pizzaSize" id="Earth">
-            <img src="img/pizza.png" alt="Picture of medium pizza">
-            <h4>Earth</h4>
-          </div>
-          <div class="pizzaSize" id="Mars">
-            <img src="img/pizza.png" alt="Picture of large pizza">
-            <h4>Mars</h4>
+          <!-- sizes -->
+          <div id="sizeSelect">
+            <h3>Size:</h3>
+            <hr>
+            <div class="pizzaSize" id="Mercury">
+              <img src="img/pizza.png" alt="Picture of small pizza">
+              <h4>Mercury</h4>
+            </div>
+            <div class="pizzaSize" id="Earth">
+              <img src="img/pizza.png" alt="Picture of medium pizza">
+              <h4>Earth</h4>
+            </div>
+            <div class="pizzaSize" id="Mars">
+              <img src="img/pizza.png" alt="Picture of large pizza">
+              <h4>Mars</h4>
+            </div>
           </div>
         </div>
+        <button id="addZa" class="btn btn-success btn-lg btn-block"><img src="img/add.png"> Add Pizza</button>
       </div>
-      <button id="addZa" class="btn btn-success btn-lg btn-block"><img src="img/add.png"> Add Pizza</button>
-    </div>
-    <!-- PIZZAS -->
-    <div id="pizzas">
-      <!-- New pizzas are prepended here -->
-    </div>
-    <button class="btn btn-primary btn-lg btn-block" id="purchaseButton">Purchase Order</button>
-    <!-- RECEIPT PAGE -->
-    <div id="receipt">
-      <div class="receiptInfo">
-        <h3>Order Summary:</h3>
-        <hr>
-        <p>Number of Pizzas: <span id="pizzaNum"></span></p>
-        <p>Total Cost: $<span id="totalCost"></span></p>
-        <hr>
-        <h4>Special thanks for choosing Pizza Planet.</h4>
-        <p>&copy; 2020 Pizza Planet</p>
+      <!-- PIZZAS -->
+      <div id="pizzas">
+        <!-- New pizzas are prepended here -->
       </div>
-      <button class="btn btn-primary btn-lg btn-block" id="buyMoreButton">Buy More Pizza!</button>
+      <button class="btn btn-primary btn-lg btn-block" id="purchaseButton">Purchase Order</button>
+      <!-- RECEIPT PAGE -->
+      <div id="receipt">
+        <div class="receiptInfo">
+          <h3>Order Summary:</h3>
+          <hr>
+          <p>Number of Pizzas: <span id="pizzaNum"></span></p>
+          <p>Total Cost: $<span id="totalCost"></span></p>
+          <hr>
+          <h4>Special thanks for choosing Pizza Planet.</h4>
+          <p>&copy; 2020 Pizza Planet</p>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" id="buyMoreButton">Reset Order!</button>
+      </div>
     </div>
+    <footer>&copy; 2020 - Jamison Cozart</footer>
   </div>
 </body>
 </html>
