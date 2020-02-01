@@ -1,4 +1,4 @@
-# _Out-of-This-World Pizza (OTS Za)_
+# _Pizza Planet_
 
 #### _Pizza purchasing application for users to customize and order their favorite pizzas._, 31 January 2020
 

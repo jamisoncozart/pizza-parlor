@@ -152,29 +152,14 @@ $(document).ready(function() {
     var buttonImage = $("#moonSun");
     if(buttonImage.attr("src") === "img/moon.png") {
       buttonImage.attr("src", "img/sun.png");
-      $("#pizzas").each(function() {
-
-      })
-      $(".panel").addClass("dark");
-      $(".pizza").addClass("dark");
-      $(".receiptInfo").addClass("dark");
+      $(".panel, .pizza, .receiptInfo, footer").addClass("dark");
       $(".pizzaSize").addClass("darkSize");
-      $("footer").addClass("dark");
-      $(".panel").removeClass("light");
-      $(".pizza").removeClass("light");
-      $(".receiptInfo").removeClass("light");
-      $("footer").removeClass("light");
+      $(".panel, .pizza, .receiptInfo, footer").removeClass("light");
     } else {
       buttonImage.attr("src", "img/moon.png");
-      $(".panel").removeClass("dark");
-      $(".pizza").removeClass("dark");
-      $(".receiptInfo").removeClass("dark");
+      $(".panel, .pizza, .receiptInfo, footer").removeClass("dark");
       $(".pizzaSize").removeClass("darkSize");
-      $("footer").removeClass("dark");
-      $(".panel").addClass("light");
-      $(".pizza").addClass("light");
-      $(".receiptInfo").addClass("light");
-      $("footer").addClass("light");
+      $(".panel, .pizza, .receiptInfo, footer").addClass("light");
     }
   })
 })
