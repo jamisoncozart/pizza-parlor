@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  color: white;
+  color: #eee;
   margin: 20px 0 20px 0;
   font-weight: bold;
   font-size: 50px;
@@ -80,7 +80,7 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #ccc;
+  background-color: #bbb;
   border-radius: 5px;
   margin: 10px 0;
   padding: 10px 20px 10px 10px;
@@ -129,7 +129,7 @@ h2 {
 
 /* PIZZAS */
 .pizza {
-  background-color: white;
+  background-color: #eee;
   text-align: left;
   padding: 20px 20px 20px 0;
   display: flex;
@@ -202,7 +202,7 @@ button#purchaseButton {
 }
 
 .receiptInfo {
-  background-color: white;
+  background-color: #eee;
   padding: 20px;
   border-radius: 5px;
   margin: 0 auto 20px auto;
@@ -225,6 +225,12 @@ button#purchaseButton {
 .dark {
   background-color: #333;
   color: white;
+  transition: 0.1s;
+}
+
+.light {
+  background-color: #eee;
+  color: black;
   transition: 0.1s;
 }
 

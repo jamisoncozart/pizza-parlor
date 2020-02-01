@@ -1,10 +1,7 @@
 //===========================================
 //BACK-END
 //-------------------------------------------
-
-///////////////////////////////////////////////
 // ORDER OBJECT //
-//////////////////
 function Order() {
   this.pizzas = [];
   this.currentId = 0;
@@ -30,8 +27,9 @@ Order.prototype.deletePizza = function(id) {
   for(let i = 0; i < this.pizzas.length; i++) {
     if(this.pizzas[i]) {
       if(this.pizzas[i].id === id) {
+        this.totalCost -= this.pizzas[i].price;
         delete this.pizzas[i];
-        removePizzaDiv(id);
+        this.removePizzaDiv(id);
         return true;
       }
     }
@@ -39,9 +37,8 @@ Order.prototype.deletePizza = function(id) {
   return false;
 }
 
-/////////////////////////////////////////////
+//----------------------------------------------------------
 // PIZZA OBJECT //
-//////////////////
 function Pizza(toppingArr, size) {
   this.toppings = toppingArr;
   this.size = size;
@@ -66,12 +63,22 @@ Pizza.prototype.calculatePrice = function() {
 //===========================================
 //FRONT-END
 //-------------------------------------------
-
 //Order object
 Order.prototype.displayOrderDetails = function() {
-  $("#pizzaNum").html(this.pizzas.length);
+  var pizzaNum = 0;
+  this.pizzas.forEach(function(pizza) {
+    if(pizza) {
+      pizzaNum++;
+    }
+  })
+  $("#pizzaNum").html(pizzaNum);
   $("#totalCost").html(this.totalCost);
 }
+Order.prototype.removePizzaDiv = function(id) {
+  $("div.pizza#" + id).remove();
+}
+
+//-------------------------------------------
 //Pizza object
 Pizza.prototype.writePizza = function() {
   var toppingString = "";
@@ -90,12 +97,8 @@ Pizza.prototype.writePizza = function() {
   
   $("div#pizzas").prepend(htmlString);
 }
-//////////////////////////
+//-------------------------------------------
 // standalone functions //
-//////////////////////////
-function removePizzaDiv(id) {
-  $("div.pizza#" + id).remove();
-}
 
 
 //On page load
@@ -138,14 +141,11 @@ $(document).ready(function() {
   })
   $("#buyMoreButton").click(function() {
     $("#receipt").hide();
-    order.pizzas.forEach(function(pizza) {
-
-      order.deletePizza(pizza.id);
-    })
+    order.pizzas = [];
     order.currentId = 0;
     order.totalCost = 0;
+    $("#pizzas").empty();
     $("#orderForm, #pizzas").show();
-    console.log(order);
   })
   //dark mode button click listener
   $("button#lightDark").click(function() {
@@ -160,6 +160,10 @@ $(document).ready(function() {
       $(".receiptInfo").addClass("dark");
       $(".pizzaSize").addClass("darkSize");
       $("footer").addClass("dark");
+      $(".panel").removeClass("light");
+      $(".pizza").removeClass("light");
+      $(".receiptInfo").removeClass("light");
+      $("footer").removeClass("light");
     } else {
       buttonImage.attr("src", "img/moon.png");
       $(".panel").removeClass("dark");
@@ -167,6 +171,10 @@ $(document).ready(function() {
       $(".receiptInfo").removeClass("dark");
       $(".pizzaSize").removeClass("darkSize");
       $("footer").removeClass("dark");
+      $(".panel").addClass("light");
+      $(".pizza").addClass("light");
+      $(".receiptInfo").addClass("light");
+      $("footer").addClass("light");
     }
   })
 })
